@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - '4000:4000'
+    environment:
+      - PORT=4000
+      - MONGO_URI=mongodb+srv://adedamolajose:sRAwPsuKRtpqMiGK@cluster0.1ou5tvd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - NODE_ENV=development
+      # Add your Google OAuth credentials and JWT secret in a .env file
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    command: npm run dev
